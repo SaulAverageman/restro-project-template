@@ -1,0 +1,9 @@
+frontend - tomcat, java11
+backend - maven, jenkins, java-1.8.0 (java-devel)
+comfigure jenkins global config for jdk and maven
+create project
+add git repo to it->add appropriate private key in Jenkins password manager
+use gitSCM in trigger
+in build-> add top-level maven target-> add shell script to scp .war file to front-end server (add id_rsa to .ssh of jenkins)
+add <jenkins IP>:8080/github-webhook/; json to github repo webhook
+commit changes to trigger project build and deployment
