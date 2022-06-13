@@ -44,8 +44,8 @@ jobs:
           context: ./
           push: true
           tags: 
-            ${{ secrets.DOCKERHUB_USERNAME }}/restro-image:latest
-            ${{ secrets.DOCKERHUB_USERNAME }}/restro-image:${{ github.sha }}
+            ${{ secrets.DOCKERHUB_USERNAME }}/restroimage:latest
+            ${{ secrets.DOCKERHUB_USERNAME }}/restroimage:${{ github.sha }}
         
       - name: "7. Configure AWS Credentials"
         uses: aws-actions/configure-aws-credentials@v1
@@ -65,7 +65,7 @@ jobs:
         with:
           task-definition: task-def.json
           container-name: ${{ env.CONTAINER_NAME }}
-          image: ${{ secrets.DOCKERHUB_USERNAME }}/restro-image:latest
+          image: ${{ secrets.DOCKERHUB_USERNAME }}/restroimage:latest
       
       - name: "10. Deploy AWS ECS task definition"
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
