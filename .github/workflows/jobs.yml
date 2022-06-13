@@ -10,7 +10,9 @@ env:
   ECS_CLUSTER: actions-cluster
   CONTAINER_NAME: restro-app
   TASK_NAME: ek-chota-sa-kaam
-
+# job
+#   steps
+#     tasks
 jobs:
   app_pipeline:
     name: "container-deployment"
