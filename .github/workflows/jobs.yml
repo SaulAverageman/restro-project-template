@@ -1,0 +1,32 @@
+name: deploy to AWS ECS cluster
+on:
+  push:
+    branches:
+      - "master"
+
+env:
+  AWS_REGION:
+  ECS_SERVICE:
+  ECS_CLUSTER:
+  CONTAINER_NAME:
+
+jobs:
+  app_pipeline:
+    name: "container-deployment"
+    runs-on: "ubuntu-latest"
+    steps:
+      - name: "1. Code checkout"
+        uses: actions/checkout@v2
+      
+      - name: "2. setup java"
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'adopt'
+          java-version: '11'
+      
+      - name: "3. maven build"
+        run: mvn clean compile package
+
+      - name: "4. docker login"
+          
+        
