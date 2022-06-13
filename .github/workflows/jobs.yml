@@ -43,7 +43,7 @@ jobs:
           file: ./dockerfile
           context: ./
           push: true
-          tags: 
+          tags: |
             ${{ secrets.DOCKERHUB_USERNAME }}/restroimage:latest
             ${{ secrets.DOCKERHUB_USERNAME }}/restroimage:${{ github.sha }}
         
